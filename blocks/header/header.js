@@ -69,10 +69,7 @@ function toggleAllNavSections(sections, expanded = false) {
  * @param {*} forceExpanded Optional param to force nav expand behavior when not null
  */
 function toggleMenu(nav, navSections, forceExpanded = null) {
-  const expanded =
-    forceExpanded !== null
-      ? !forceExpanded
-      : nav.getAttribute('aria-expanded') === 'true';
+  const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = expanded || isDesktop.matches ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
@@ -147,12 +144,9 @@ export default async function decorate(block) {
           navSection.classList.add('nav-drop');
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
-            const expanded =
-              navSection.getAttribute('aria-expanded') === 'true';
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
             toggleAllNavSections(navSections);
-            navSection.setAttribute(
-              'aria-expanded',
-              expanded ? 'false' : 'true'
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true'
             );
           }
         });
