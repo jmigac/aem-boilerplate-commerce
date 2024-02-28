@@ -44,6 +44,7 @@ export default async function decorate(block) {
         block.closest('.section').classList.add(...section.classList);
         const wrapper = block.closest('.enrichment-wrapper');
         section.childNodes.forEach((child) => wrapper.parentNode.insertBefore(child, wrapper));
+        block.closest('.section').append(...section.childNodes);
       }
     });
 
