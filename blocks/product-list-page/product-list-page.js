@@ -1,6 +1,6 @@
+import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 import { loadScript, readBlockConfig } from '../../scripts/aem.js';
 import { getConfigValue } from '../../scripts/configs.js';
-import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 
 export default async function decorate(block) {
   const { urlpath, category, type } = readBlockConfig(block);
