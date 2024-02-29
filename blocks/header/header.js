@@ -140,14 +140,14 @@ export default async function decorate(block) {
     navSections
       .querySelectorAll(':scope .default-content-wrapper > ul > li')
       .forEach((navSection) => {
-        if (navSection.querySelector('ul'))
+        if (navSection.querySelector('ul')) {
           navSection.classList.add('nav-drop');
+        }
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
             const expanded = navSection.getAttribute('aria-expanded') === 'true';
             toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true'
-            );
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
           }
         });
       });
@@ -177,8 +177,7 @@ export default async function decorate(block) {
     if (show) {
       await cartProvider.render(MiniCart, {
         routeEmptyCartCTA: () => '/',
-        routeProduct: (product) =>
-          `/products/${product.url.urlKey}/${product.sku}`,
+        routeProduct: (product) => `/products/${product.url.urlKey}/${product.sku}`,
         routeCart: () => '/cart',
         routeCheckout: () => '/checkout',
       })(minicartPanel);
@@ -201,7 +200,7 @@ export default async function decorate(block) {
         cartButton.removeAttribute('data-count');
       }
     },
-    { eager: true }
+    { eager: true },
   );
 
   /** Search */
@@ -222,8 +221,7 @@ export default async function decorate(block) {
   const searchInput = searchPanel.querySelector('input');
 
   function toggleSearch(state) {
-    const show =
-      state ?? !searchPanel.classList.contains('nav-tools-panel--show');
+    const show = state ?? !searchPanel.classList.contains('nav-tools-panel--show');
 
     searchPanel.classList.toggle('nav-tools-panel--show', show);
 
@@ -256,10 +254,7 @@ export default async function decorate(block) {
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () =>
-    toggleMenu(nav, navSections, isDesktop.matches)
-  );
-
+  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
