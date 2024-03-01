@@ -1,11 +1,7 @@
 helix-importer-ui
 scripts/preact.js
 scripts/htm.js
-<<<<<<< HEAD
 tools/picker
 scripts/widgets
-=======
 scripts/dropins
-tools/picker
 scripts/__dropins__
->>>>>>> boilerplate-plugins/main
